@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CICCE - Your Right Choice for IT Education in KGF</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/lucide-static@latest/font/Lucide.css" />
+
+    <style>
+        /* Custom styles (Re-adding highlight-section styles) */
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #e0f7fa 0%, #e1bee7 100%);
+            overflow-x: hidden;
+        }
+
+        .title {
+            color: #e94381;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .wave {
+            display: block; width: 100%; height: 60px; fill: #ffffff; /* Default fill for top wave */
+        }
+        .wave-path {
+            animation: wave-animation 5s linear infinite alternate;
+        }
+        @keyframes wave-animation {
+            0% { d: path("M0,30 Q150,0 300,30 T600,30 T900,30 T1200,30 T1500,30 V60 H0 Z"); }
+            100% { d: path("M0,30 Q150,60 300,30 T600,30 T900,30 T1200,30 T1500,30 V60 H0 Z"); }
+        }
+        .rotate-icon {
+            animation: rotate-animation 12s linear infinite; display: inline-block;
+        }
+        @keyframes rotate-animation {
+            from { transform: rotate(0deg); } to { transform: rotate(360deg); }
+        }
+        .course-card {
+            background-color: rgba(255, 255, 255, 0.75); backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+        .course-card:hover {
+            transform: translateY(-8px) scale(1.02); box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+        .course-card:hover .card-icon {
+             transform: scale(1.1) rotate(-5deg);
+        }
+        .card-icon {
+            transition: transform 0.3s ease-in-out; display: inline-block;
+        }
+        .admission-badge {
+            display: inline-block; padding: 0.5rem 1.5rem; border-radius: 9999px;
+            font-weight: 700; font-size: 1.1rem; color: white;
+            background: linear-gradient(45deg, #22c55e, #10b981);
+            box-shadow: 0 4px 10px rgba(34, 197, 94, 0.4);
+            animation: pulse-badge 2s infinite; margin-top: 1.5rem;
+        }
+        @keyframes pulse-badge {
+            0% { transform: scale(1); box-shadow: 0 4px 10px rgba(34, 197, 94, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 6px 15px rgba(34, 197, 94, 0.6); }
+            100% { transform: scale(1); box-shadow: 0 4px 10px rgba(34, 197, 94, 0.4); }
+        }
+        /* Highlight Section for New Courses (Re-added) */
+        .highlight-section {
+            background: linear-gradient(135deg, #ede9fe 0%, #dbeafe 100%);
+            padding: 3rem 1rem;
+            margin-top: -1px; /* Overlap slightly with wave */
+            margin-bottom: -1px;
+            position: relative;
+        }
+        /* Styling for logos in highlight section (Re-added) */
+        .tech-logo {
+            display: flex; flex-direction: column; align-items: center;
+            text-align: center; transition: transform 0.3s ease;
+        }
+        .tech-logo:hover { transform: scale(1.1); }
+        .tech-logo span.lucide {
+            font-size: 3rem; margin-bottom: 0.5rem; padding: 0.75rem;
+            border-radius: 50%; background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        [data-aos] { opacity: 0; transition-property: transform, opacity; }
+        .aos-animate { opacity: 1; }
+        .logo-placeholder {
+             height: 40px; width: auto; object-fit: contain; margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <header class="bg-white/80 backdrop-blur-md shadow-md sticky top-0 z-50 rounded-b-xl mx-4 mt-4" data-aos="fade-down">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="flex items-center text-2xl font-bold text-purple-700">
+                <img src="images/logo.png"
+                     alt="CICCE Logo Placeholder"
+                     class="logo-placeholder"
+                     onerror="this.onerror=null; this.src='https://placehold.co/150x50/cccccc/333333?text=Logo+Error';">
+                <span class="lucide lucide-graduation-cap text-3xl inline-block"></span>
+                <h3 class="title">Chandra Institute of Commerce and Computer Education </h3>
+            </div>
+            <div>
+                <a href="#courses" class="text-gray-700 hover:text-purple-600 px-3 py-2 rounded-md text-sm font-medium">Courses</a>
+                <a href="#why-us" class="text-gray-700 hover:text-purple-600 px-3 py-2 rounded-md text-sm font-medium">Why Us</a>
+                <a href="#contact" class="text-gray-700 hover:text-purple-600 px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="container mx-auto px-6 py-20 text-center relative z-10" data-aos="fade-in">
+        <span class="lucide lucide-flower-2 text-5xl text-pink-500 mb-4 rotate-icon"></span>
+         <h1 class="text-4xl md:text-5xl font-bold mb-4 text-purple-800">Chandra Institute: Your Right Choice</h1>
+         <p class="text-xl text-gray-700 mb-6">Recognized by the Government of Karnataka.</p>
+         <p class="text-2xl font-semibold text-teal-700 mb-8">Unlock Your Potential with In-Demand IT Skills</p>
+         <a href="#courses" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 ease-in-out text-lg shadow-lg hover:shadow-xl hover:scale-105 transform">Explore Our Courses</a>
+        <div class="admission-badge" data-aos="zoom-in" data-aos-delay="300">
+            ADMISSIONS OPEN!
+        </div>
+    </section>
+
+    <div class="w-full overflow-hidden leading-none relative z-0">
+      <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 60" preserveAspectRatio="none">
+        <path class="wave-path" style="fill: #ffffff;" d="M0,30 Q150,0 300,30 T600,30 T900,30 T1200,30 T1500,30 V60 H0 Z"></path>
+      </svg>
+    </div>
+
+    <section class="highlight-section relative z-10">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-4 text-purple-800" data-aos="fade-up">
+                <span class="lucide lucide-zap text-yellow-500"></span> New Launch: Programming & Data Analytics  
+            </h2>
+            <p class="text-lg text-gray-700 mb-10" data-aos="fade-up" data-aos-delay="100">Master the tools driving modern technology and business intelligence</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8" data-aos="fade-up" data-aos-delay="200">
+                <div class="tech-logo">
+                    <img src="images/python.png"
+                     alt="CICCE Logo Placeholder"
+                     class="logo-placeholder">
+                    <p class="font-semibold text-purple-700 mt-2">Python Programming</p>
+                </div>
+                <div class="tech-logo">
+                    <img src="images/powerbi.png"
+                    alt="CICCE Logo Placeholder"
+                    class="logo-placeholder">
+                    <p class="font-semibold text-purple-700 mt-2">Power BI</p>
+                </div>
+                <div class="tech-logo">
+                    <img src="images/excel.png"
+                    alt="CICCE Logo Placeholder"
+                    class="logo-placeholder">
+                    <p class="font-semibold text-purple-700 mt-2">Advanced Excel</p>
+                </div>
+                <div class="tech-logo">
+                    <img src="images/sql.png"
+                    alt="CICCE Logo Placeholder"
+                    class="logo-placeholder">
+                    <p class="font-semibold text-purple-700 mt-2">SQL</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <div class="w-full overflow-hidden leading-none rotate-180 relative z-0">
+      <svg class="wave" style="fill: #ede9fe;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 60" preserveAspectRatio="none"> <path class="wave-path" d="M0,30 Q150,0 300,30 T600,30 T900,30 T1200,30 T1500,30 V60 H0 Z"></path>
+      </svg>
+    </div>
+
+    <section id="courses" class="bg-white py-16 px-4 relative z-10">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12 text-purple-800" data-aos="fade-up">Explore Our Skill-Boosting Courses</h2>
+             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <div class="course-card p-6 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="100">
+                    <span class="lucide lucide-keyboard text-4xl text-teal-600 mb-4 card-icon"></span>
+                    <h3 class="text-xl font-semibold mb-3 text-purple-700">Government Certified Courses</h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1">
+                        <li>English Typing Jr & Sr Grade</li>
+                        <li>Office Automation</li>
+                        <li>Graphic Designer Course</li>
+                    </ul>
+                    <br>
+                     <p class="text-xs text-gray-500 mt-2"><b>Exams Conducted & Certified by KSEAB.</b></p>
+                </div>
+
+                <div class="course-card p-6 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="200">
+                     <span class="lucide lucide-palette text-4xl text-pink-500 mb-4 card-icon"></span>
+                    <h3 class="text-xl font-semibold mb-3 text-purple-700">Diploma Courses</h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1">
+                        <li>Diploma in Computer Application</li>
+                        <li>Diploma in Computer Programming</li>
+                        <li>Diploma in Accounting Package - Tally</li>
+                        <li>Diploma in Computer Graphics</li>
+                        <li>Higher Diploma in Computer Application</li>
+                    </ul>
+                </div>
+
+                <div class="course-card p-6 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="300">
+                     <span class="lucide lucide-app-window text-4xl text-blue-600 mb-4 card-icon"></span>
+                     <h3 class="text-xl font-semibold mb-3 text-purple-700">Crash Courses</h3>
+                     <ul class="list-disc list-inside text-gray-700 space-y-1">
+                        <li>Certificate in Information Technology</li>
+                        <li>Certificate in desktop publishing</li>
+                        <li>Certificate in Computer Application</li>
+                        <li>Certificate in Programming Language</li>
+                        <li>Certificate in Computer Graphics</li>
+                    </ul>
+                </div>
+
+                 <!-- <div class="course-card p-6 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="400">
+                     <span class="lucide lucide-landmark text-4xl text-green-600 mb-4 card-icon"></span>
+                    <h3 class="text-xl font-semibold mb-3 text-purple-700">Business & Accounting</h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1">
+                        <li>Diploma in Accounting Package - Tally</li>
+                    </ul>
+                     <p class="text-sm text-gray-600 mt-2">Master the industry-standard accounting software.</p>
+                 </div>
+
+                 <div class="course-card p-6 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="500">
+                     <span class="lucide lucide-sun text-4xl text-orange-500 mb-4 card-icon"></span>
+                    <h3 class="text-xl font-semibold mb-3 text-purple-700">Summer Crash Courses</h3>
+                    <ul class="list-disc list-inside text-gray-700 space-y-1">
+                        <li>Fast-track Certificate Courses (IT, DTP, App, Lang, Graphics)</li>
+                    </ul>
+                     <p class="text-sm text-gray-500 mt-2">Intensive learning during summer breaks. CICCE Certified.</p>
+                 </div> -->
+
+                 <div class="hidden lg:block"></div>
+
+            </div>
+             <p class="text-center text-gray-600 mt-10" data-aos="fade-up">Core courses certified by Karnataka School Examination and Assessment Board (KSEAB) & CICCE.</p>
+        </div>
+    </section>
+
+    <div class="w-full overflow-hidden leading-none rotate-180 relative z-0">
+      <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 60" preserveAspectRatio="none" style="fill: #e0f7fa;">
+        <path class="wave-path" d="M0,30 Q150,0 300,30 T600,30 T900,30 T1200,30 T1500,30 V60 H0 Z"></path>
+      </svg>
+    </div>
+
+    <section id="why-us" class="py-16 px-4 relative z-10">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-10 text-purple-800" data-aos="fade-up">Why Choose CICCE?</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white/60 p-6 rounded-xl shadow-lg backdrop-filter backdrop-blur-sm hover:shadow-xl hover:scale-105 transform transition duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <span class="lucide lucide-badge-check text-4xl text-green-600 mb-3 inline-block card-icon"></span>
+                    <h3 class="text-lg font-semibold mb-2 text-purple-700">Govt. Recognized</h3>
+                    <p class="text-gray-700 text-sm">Trusted education, approved by Govt. of Karnataka.</p>
+                </div>
+                <div class="bg-white/60 p-6 rounded-xl shadow-lg backdrop-filter backdrop-blur-sm hover:shadow-xl hover:scale-105 transform transition duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <span class="lucide lucide-users text-4xl text-blue-600 mb-3 inline-block card-icon"></span>
+                    <h3 class="text-lg font-semibold mb-2 text-purple-700">Expert Faculty</h3>
+                    <p class="text-gray-700 text-sm">Learn from experienced teachers.</p>
+                </div>
+                <div class="bg-white/60 p-6 rounded-xl shadow-lg backdrop-filter backdrop-blur-sm hover:shadow-xl hover:scale-105 transform transition duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <span class="lucide lucide-user-check text-4xl text-teal-600 mb-3 inline-block card-icon"></span>
+                    <h3 class="text-lg font-semibold mb-2 text-purple-700">Individual Attention</h3>
+                    <p class="text-gray-700 text-sm">Personalized support to ensure your success.</p>
+                </div>
+                <div class="bg-white/60 p-6 rounded-xl shadow-lg backdrop-filter backdrop-blur-sm hover:shadow-xl hover:scale-105 transform transition duration-300" data-aos="fade-up" data-aos-delay="400">
+                    <span class="lucide lucide-book-open text-4xl text-orange-500 mb-3 inline-block card-icon"></span>
+                    <h3 class="text-lg font-semibold mb-2 text-purple-700">Quality Course Material</h3>
+                    <p class="text-gray-700 text-sm">Comprehensive courseware included.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <section id="typing" class="bg-white py-16 px-4 relative z-10">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-10 text-purple-800" data-aos="fade-up">Master Typing: A Foundational IT Skill</h2>
+             <p class="max-w-3xl mx-auto text-gray-700 mb-8" data-aos="fade-up">
+                Boost your efficiency and accuracy on the computer. Strong typing skills are essential for every IT professional!
+            </p>
+            <div class="grid md:grid-cols-3 gap-8">
+                 <div class="bg-purple-100/60 p-6 rounded-xl shadow-md hover:shadow-lg hover:scale-105 transform transition duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <span class="lucide lucide-gauge-circle text-4xl text-purple-600 mb-3 inline-block card-icon"></span>
+                    <h3 class="text-lg font-semibold mb-2 text-purple-700">Boost Speed & Accuracy</h3>
+                    <p class="text-gray-700 text-sm">Operate computers faster with fewer mistakes.</p>
+                </div>
+                 <div class="bg-teal-100/60 p-6 rounded-xl shadow-md hover:shadow-lg hover:scale-105 transform transition duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <span class="lucide lucide-languages text-4xl text-teal-600 mb-3 inline-block card-icon"></span>
+                    <h3 class="text-lg font-semibold mb-2 text-teal-700">Enhance Language Skills</h3>
+                    <p class="text-gray-700 text-sm">Improve proficiency in professional communication.</p>
+                </div>
+                 <div class="bg-pink-100/60 p-6 rounded-xl shadow-md hover:shadow-lg hover:scale-105 transform transition duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <span class="lucide lucide-spell-check text-4xl text-pink-600 mb-3 inline-block card-icon"></span>
+                    <h3 class="text-lg font-semibold mb-2 text-pink-700">Minimize Errors</h3>
+                    <p class="text-gray-700 text-sm">Reduce spelling and grammatical mistakes naturally.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-16 px-4 bg-gradient-to-t from-purple-200 via-pink-100 to-white relative z-10">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-8 text-purple-800" data-aos="fade-up">Ready to Boost Your Knowledge? Contact Us!</h2>
+            <p class="text-lg text-gray-700 mb-4" data-aos="fade-up" data-aos-delay="100">
+                Visit us today for more details and secure your admission!
+            </p>
+            <p class="text-lg font-semibold text-gray-800 mb-2" data-aos="fade-up" data-aos-delay="200">
+                <span class="lucide lucide-map-pin mr-2 inline-block"></span>Lakshmi Theatre Complex, O'Daniel Road, Andersonpet, KGF - 563 113
+            </p>
+            <p class="text-lg font-semibold text-gray-800 mb-8" data-aos="fade-up" data-aos-delay="300">
+                 <span class="lucide lucide-phone mr-2 inline-block"></span>Phone:9110421913 / 9738603213 / 8884065186
+            </p>
+             <div class="admission-badge inline-block" data-aos="zoom-in" data-aos-delay="400">
+                 Don't Miss Your Golden Opportunity!
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white text-center py-6 relative z-10">
+        <div class="container mx-auto">
+            <p>&copy; <script>document.write(new Date().getFullYear())</script> Chandra Institute of Commerce & Computer Education. All Rights Reserved.</p>
+             <p class="text-sm text-gray-400 mt-2">KGF - 563 113 | Govt. Recognized</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800, // Animation duration
+            easing: 'ease-in-out', // Animation easing
+            once: true, // Whether animation should happen only once - while scrolling down
+            mirror: false, // Whether elements should animate out while scrolling past them
+            offset: 50, // Trigger animations slightly earlier
+        });
+    </script>
+</body>
+</html>
