@@ -12,19 +12,20 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/lucide-static@latest/font/Lucide.css" />
 
     <style>
-        /* Custom styles (Re-adding highlight-section styles) */
+        /* Custom styles */
         body {
             font-family: 'Inter', sans-serif;
             background: linear-gradient(135deg, #e0f7fa 0%, #e1bee7 100%);
             overflow-x: hidden;
         }
 
-        .title {
+        /* Removed original .title styles as they are handled differently now */
+        /* .title {
             color: #e94381;
             align-items: center;
             justify-content: center;
             text-align: center;
-        }
+        } */
 
         .wave {
             display: block; width: 100%; height: 60px; fill: #ffffff; /* Default fill for top wave */
@@ -69,7 +70,6 @@
             50% { transform: scale(1.05); box-shadow: 0 6px 15px rgba(34, 197, 94, 0.6); }
             100% { transform: scale(1); box-shadow: 0 4px 10px rgba(34, 197, 94, 0.4); }
         }
-        /* Highlight Section for New Courses (Re-added) */
         .highlight-section {
             background: linear-gradient(135deg, #ede9fe 0%, #dbeafe 100%);
             padding: 3rem 1rem;
@@ -77,7 +77,6 @@
             margin-bottom: -1px;
             position: relative;
         }
-        /* Styling for logos in highlight section (Re-added) */
         .tech-logo {
             display: flex; flex-direction: column; align-items: center;
             text-align: center; transition: transform 0.3s ease;
@@ -93,28 +92,75 @@
         .logo-placeholder {
              height: 40px; width: auto; object-fit: contain; margin-right: 0.5rem;
         }
+
+        /* ---- ADDED STYLES FOR RESPONSIVE SCROLLING TITLE ---- */
+        .desktop-title { display: block; } /* Show full title by default */
+        .mobile-title { display: none; }  /* Hide abbreviation by default */
+
+        @media (max-width: 768px) { /* Apply styles for screens <= 768px wide (mobile) */
+            .desktop-title { display: none; }  /* Hide full title on mobile */
+            .mobile-title { display: block; } /* Show abbreviation on mobile */
+
+            /* Hide nav links and show menu button on small screens */
+            .desktop-nav-links a { display: none; }
+            .mobile-menu-button { display: inline-block; }
+        }
+
+        @media (min-width: 769px) { /* Apply styles for screens > 768px wide (desktop) */
+             .mobile-menu-button { display: none; } /* Hide menu button on larger screens */
+        }
+
+        /* Style for marquee to fit */
+        .title-marquee {
+            flex-grow: 1; /* Allow marquee to take available space */
+            overflow: hidden; /* Hide overflow */
+            white-space: nowrap; /* Prevent wrapping inside marquee */
+            margin-left: 10px; /* Add some space after the icon */
+            color: #e94381; /* Keep the original color */
+            font-size: inherit; /* Inherit font size */
+            font-weight: inherit; /* Inherit font weight */
+            line-height: 1.2; /* Adjust line height for better vertical alignment */
+            /* Prevent marquee from pushing other elements */
+            min-width: 0;
+        }
+         /* Adjust parent flex container */
+         .header-title-container {
+            display: flex;
+            align-items: center; /* Vertically align items */
+            flex-grow: 1; /* Allow this container to grow */
+            overflow: hidden; /* Prevent title from breaking layout */
+            min-width: 0; /* Important for flex item containing marquee */
+         }
+         /* ---- END OF ADDED STYLES ---- */
+
     </style>
 </head>
 <body class="text-gray-800">
 
     <header class="bg-white/80 backdrop-blur-md shadow-md sticky top-0 z-50 rounded-b-xl mx-4 mt-4" data-aos="fade-down">
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <div class="flex items-center text-2xl font-bold text-purple-700">
+            <div class="header-title-container text-2xl font-bold text-purple-700">
                 <img src="images/logo.png"
                      alt="CICCE Logo Placeholder"
-                     class="logo-placeholder"
-                     onerror="this.onerror=null; this.src='https://placehold.co/150x50/cccccc/333333?text=Logo+Error';">
-                <span class="lucide lucide-graduation-cap text-3xl inline-block"></span>
-                <h3 class="title">Chandra Institute of Commerce and Computer Education </h3>
+                     class="logo-placeholder flex-shrink-0" onerror="this.onerror=null; this.src='https://placehold.co/150x50/cccccc/333333?text=Logo+Error';">
+                <span class="lucide lucide-graduation-cap text-3xl inline-block flex-shrink-0"></span> <div class="title-marquee">
+                    <marquee behavior="scroll" direction="left" scrollamount="5">
+                        <span class="desktop-title">Chandra Institute of Commerce and Computer Education</span>
+                        <span class="mobile-title">CICCE</span>
+                    </marquee>
+                </div>
             </div>
-            <div>
-                <a href="#courses" class="text-gray-700 hover:text-purple-600 px-3 py-2 rounded-md text-sm font-medium">Courses</a>
-                <a href="#why-us" class="text-gray-700 hover:text-purple-600 px-3 py-2 rounded-md text-sm font-medium">Why Us</a>
-                <a href="#contact" class="text-gray-700 hover:text-purple-600 px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+            <div class="flex-shrink-0">
+                <div class="desktop-nav-links"> <a href="#courses" class="text-gray-700 hover:text-purple-600 px-3 py-2 rounded-md text-sm font-medium">Courses</a>
+                    <a href="#why-us" class="text-gray-700 hover:text-purple-600 px-3 py-2 rounded-md text-sm font-medium">Why Us</a>
+                    <a href="#contact" class="text-gray-700 hover:text-purple-600 px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+                </div>
+                 <button class="mobile-menu-button text-gray-700 hover:text-purple-600 px-3 py-2 rounded-md text-sm font-medium">
+                    <span class="lucide lucide-menu text-2xl"></span>
+                 </button>
             </div>
         </nav>
     </header>
-
     <section class="container mx-auto px-6 py-20 text-center relative z-10" data-aos="fade-in">
         <span class="lucide lucide-flower-2 text-5xl text-pink-500 mb-4 rotate-icon"></span>
          <h1 class="text-4xl md:text-5xl font-bold mb-4 text-purple-800">Chandra Institute: Your Right Choice</h1>
@@ -135,33 +181,29 @@
     <section class="highlight-section relative z-10">
         <div class="container mx-auto text-center">
             <h2 class="text-3xl font-bold mb-4 text-purple-800" data-aos="fade-up">
-                <span class="lucide lucide-zap text-yellow-500"></span> New Launch: Programming & Data Analytics  
+                <span class="lucide lucide-zap text-yellow-500"></span> New Launch: Programming & Data Analytics
             </h2>
             <p class="text-lg text-gray-700 mb-10" data-aos="fade-up" data-aos-delay="100">Master the tools driving modern technology and business intelligence</p>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8" data-aos="fade-up" data-aos-delay="200">
                 <div class="tech-logo">
                     <img src="images/python.png"
-                     alt="CICCE Logo Placeholder"
-                     class="logo-placeholder">
-                    <p class="font-semibold text-purple-700 mt-2">Python Programming</p>
+                     alt="Python Logo"
+                     class="logo-placeholder h-12 w-12 mx-auto mb-2"> <p class="font-semibold text-purple-700 mt-2">Python Programming</p>
                 </div>
                 <div class="tech-logo">
                     <img src="images/powerbi.png"
-                    alt="CICCE Logo Placeholder"
-                    class="logo-placeholder">
-                    <p class="font-semibold text-purple-700 mt-2">Power BI</p>
+                    alt="Power BI Logo"
+                    class="logo-placeholder h-12 w-12 mx-auto mb-2"> <p class="font-semibold text-purple-700 mt-2">Power BI</p>
                 </div>
                 <div class="tech-logo">
                     <img src="images/excel.png"
-                    alt="CICCE Logo Placeholder"
-                    class="logo-placeholder">
-                    <p class="font-semibold text-purple-700 mt-2">Advanced Excel</p>
+                    alt="Excel Logo"
+                    class="logo-placeholder h-12 w-12 mx-auto mb-2"> <p class="font-semibold text-purple-700 mt-2">Advanced Excel</p>
                 </div>
                 <div class="tech-logo">
                     <img src="images/sql.png"
-                    alt="CICCE Logo Placeholder"
-                    class="logo-placeholder">
-                    <p class="font-semibold text-purple-700 mt-2">SQL</p>
+                    alt="SQL Logo"
+                    class="logo-placeholder h-12 w-12 mx-auto mb-2"> <p class="font-semibold text-purple-700 mt-2">SQL</p>
                 </div>
             </div>
         </div>
@@ -213,27 +255,7 @@
                     </ul>
                 </div>
 
-                 <!-- <div class="course-card p-6 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="400">
-                     <span class="lucide lucide-landmark text-4xl text-green-600 mb-4 card-icon"></span>
-                    <h3 class="text-xl font-semibold mb-3 text-purple-700">Business & Accounting</h3>
-                    <ul class="list-disc list-inside text-gray-700 space-y-1">
-                        <li>Diploma in Accounting Package - Tally</li>
-                    </ul>
-                     <p class="text-sm text-gray-600 mt-2">Master the industry-standard accounting software.</p>
-                 </div>
-
-                 <div class="course-card p-6 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="500">
-                     <span class="lucide lucide-sun text-4xl text-orange-500 mb-4 card-icon"></span>
-                    <h3 class="text-xl font-semibold mb-3 text-purple-700">Summer Crash Courses</h3>
-                    <ul class="list-disc list-inside text-gray-700 space-y-1">
-                        <li>Fast-track Certificate Courses (IT, DTP, App, Lang, Graphics)</li>
-                    </ul>
-                     <p class="text-sm text-gray-500 mt-2">Intensive learning during summer breaks. CICCE Certified.</p>
-                 </div> -->
-
-                 <div class="hidden lg:block"></div>
-
-            </div>
+                 <div class="hidden lg:block"></div> </div>
              <p class="text-center text-gray-600 mt-10" data-aos="fade-up">Core courses certified by Karnataka School Examination and Assessment Board (KSEAB) & CICCE.</p>
         </div>
     </section>
@@ -308,7 +330,7 @@
                 <span class="lucide lucide-map-pin mr-2 inline-block"></span>Lakshmi Theatre Complex, O'Daniel Road, Andersonpet, KGF - 563 113
             </p>
             <p class="text-lg font-semibold text-gray-800 mb-8" data-aos="fade-up" data-aos-delay="300">
-                 <span class="lucide lucide-phone mr-2 inline-block"></span>Phone:9110421913 / 9738603213 / 8884065186
+                 <span class="lucide lucide-phone mr-2 inline-block"></span>Phone: 9110421913 / 9738603213 / 8884065186
             </p>
              <div class="admission-badge inline-block" data-aos="zoom-in" data-aos-delay="400">
                  Don't Miss Your Golden Opportunity!
@@ -333,6 +355,11 @@
             mirror: false, // Whether elements should animate out while scrolling past them
             offset: 50, // Trigger animations slightly earlier
         });
+
+        // Optional: Add JS for mobile menu toggle if needed
+        const menuButton = document.querySelector('.mobile-menu-button');
+        // Add event listener if you implement a dropdown/sidebar menu
+        // menuButton.addEventListener('click', () => { /* ... toggle menu ... */ });
     </script>
 </body>
 </html>
